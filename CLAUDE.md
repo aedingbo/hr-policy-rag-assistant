@@ -1134,7 +1134,11 @@ Project 1 is complete when it demonstrates:
 Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
-Current step: P1-01 — Initialize repository (In progress)
+Current step: P1-01 — Initialize repository (Verified
+2026-11-03)
+
+Next step: P1-02 — Local development infrastructure
+(Not started; awaiting developer authorization)
 
 Done: Claude Code extension, project folder, CLAUDE.md
 aligned to the 2026 Final PDF, `HANDWRITTEN.md` ledger
@@ -1146,7 +1150,7 @@ initial Docker configuration and README.
 uv 0.13.7 is installed, `uv.lock` is generated and the
 initial commit `dc0cbc8` exists on `main`.
 
-Remaining for P1-01: developer verification of P1-01.
+P1-01 was verified by the developer on 2026-11-03.
 
 Do not begin implementing the RAG pipeline until
 the developer explicitly authorizes the next step.
