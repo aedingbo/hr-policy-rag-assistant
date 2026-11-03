@@ -1,0 +1,90 @@
+# Project 1 — HR Policy & Benefits Knowledge Assistant
+# Never commit secrets, local state or generated artifacts.
+
+# --- Environment files and secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.secrets/
+.streamlit/secrets.toml
+
+# --- AWS local credentials ---
+.aws/
+credentials
+aws-credentials*
+
+# --- Python virtual environments ---
+.venv/
+venv/
+ENV/
+
+# --- Python caches and build output ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+.ipynb_checkpoints/
+
+# --- Terraform ---
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# --- Docker local overrides ---
+docker-compose.override.yml
+compose.override.yml
+
+# --- VS Code (keep shared project settings) ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# --- Claude Code personal settings ---
+.claude/settings.local.json
+
+# --- Logs and temporary artifacts ---
+*.log
+*.tmp
+*.bak
+*.swp
+tmp/
+temp/
+
+# --- OS and editor files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# --- Private project planning documents ---
+docs/reference/

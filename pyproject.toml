@@ -1,0 +1,22 @@
+# Project metadata and build configuration for Project 1:
+# HR Policy & Benefits Knowledge Assistant.
+# Dependencies are managed with uv: `uv add <package>` updates this file and
+# uv.lock together. Runtime dependencies are added only when a milestone needs them.
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hr-policy-knowledge-assistant"
+version = "0.1.0"
+description = "Permission-aware RAG assistant for fictional HR policy and benefits documents across three tenants."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[tool.setuptools]
+# Root-level layout: list each application package explicitly.
+# Add packages (for example generation, llm, core) when their milestones begin,
+# and add matching COPY lines to the Dockerfile.
+packages = ["api", "ingest", "retrieval", "eval"]
