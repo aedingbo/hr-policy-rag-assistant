@@ -1,0 +1,4 @@
+# Keep files read by Linux container builds on LF line endings,
+# regardless of the local core.autocrlf setting.
+Dockerfile text eol=lf
+.dockerignore text eol=lf

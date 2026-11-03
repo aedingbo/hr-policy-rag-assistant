@@ -1143,11 +1143,10 @@ template, `docs/reviews/`, Git on `main`, `.gitignore`,
 approved root-level repository layout, `pyproject.toml`,
 initial Docker configuration and README.
 
-uv 0.13.7 is installed and `uv.lock` is generated.
+uv 0.13.7 is installed, `uv.lock` is generated and the
+initial commit `dc0cbc8` exists on `main`.
 
-Remaining for P1-01: the first Git commit (author
-identity decision pending) and developer verification
-of P1-01.
+Remaining for P1-01: developer verification of P1-01.
 
 Do not begin implementing the RAG pipeline until
 the developer explicitly authorizes the next step.
