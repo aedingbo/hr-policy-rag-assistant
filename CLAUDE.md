@@ -1141,11 +1141,11 @@ Project 1 is complete when it demonstrates:
 Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
-Current step: P1-02 — Local development infrastructure
-(In progress)
+Current step: P1-03 — Data model and provenance
+(Not started; awaiting developer authorization)
 
-Previous step: P1-01 — Initialize repository (Verified
-2026-11-03)
+Previous step: P1-02 — Local development infrastructure
+(Verified 2026-11-03)
 
 Done: Claude Code extension, project folder, CLAUDE.md
 aligned to the 2026 Final PDF, `HANDWRITTEN.md` ledger
@@ -1157,7 +1157,16 @@ initial Docker configuration and README.
 uv 0.13.7 is installed, `uv.lock` is generated and the
 initial commit `dc0cbc8` exists on `main`.
 
-P1-01 was verified by the developer on 2026-11-03.
+P1-02 added a local PostgreSQL 17 / pgvector 0.8.7 database
+(`docker-compose.yml`) with localhost-only access, a
+named volume, a health check and a tested `pg_dump`
+backup and restore. Evidence and the proposed database
+role design are in
+`docs/reviews/2026-11-03_P1-02_security-design-review.md`
+(SDR-001 stays open until P1-09/P1-15).
+
+P1-01 and P1-02 were verified by the developer on
+2026-11-03.
 
 Do not begin implementing the RAG pipeline until
 the developer explicitly authorizes the next step.
