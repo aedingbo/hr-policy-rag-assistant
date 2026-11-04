@@ -311,6 +311,13 @@ residual risks and reviewer model/version. Summarize
 accepted/rejected counts and the most important caught
 defect in the project write-up.
 
+Additional reviewer (optional, developer-initiated): ChatGPT may be consulted as
+an extra independent reviewer for significant decisions, security-sensitive
+configuration, tradeoff comparisons, difficult issues, metric evaluation and
+milestone approval. It does not replace the DeepSeek/Qwen reviews above. Never
+paste secrets, credentials, .env values, private specification content or
+personal data into it.
+
 Do not claim code is optimized without evidence.
 
 ### Runtime Model Strategy
@@ -1134,11 +1141,11 @@ Project 1 is complete when it demonstrates:
 Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
-Current step: P1-01 — Initialize repository (Verified
-2026-11-03)
+Current step: P1-02 — Local development infrastructure
+(In progress)
 
-Next step: P1-02 — Local development infrastructure
-(Not started; awaiting developer authorization)
+Previous step: P1-01 — Initialize repository (Verified
+2026-11-03)
 
 Done: Claude Code extension, project folder, CLAUDE.md
 aligned to the 2026 Final PDF, `HANDWRITTEN.md` ledger

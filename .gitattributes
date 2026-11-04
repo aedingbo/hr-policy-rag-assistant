@@ -2,3 +2,4 @@
 # regardless of the local core.autocrlf setting.
 Dockerfile text eol=lf
 .dockerignore text eol=lf
+docker-compose.yml text eol=lf

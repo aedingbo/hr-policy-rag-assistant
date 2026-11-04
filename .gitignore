@@ -86,5 +86,6 @@ Thumbs.db
 desktop.ini
 ~$*
 
-# --- Private project planning documents ---
+# --- Private documents (never published) ---
 docs/reference/
+docs/learning/

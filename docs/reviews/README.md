@@ -4,6 +4,10 @@ This directory stores DeepSeek/Qwen independent review records for
 Project 1, as required by `docs/reference/2026 Final AI Bridge Portfolio.pdf`
 and `CLAUDE.md` Section 5.
 
+Additional design reviews (for example ChatGPT) may also be recorded here.
+They are labeled as such and do not count toward the required DeepSeek/Qwen
+review cadence.
+
 ## When a review is required
 
 - At least at each stage milestone: Core implementation, Production

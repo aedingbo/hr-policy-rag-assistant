@@ -19,9 +19,9 @@ real employee data is used.
 
 ## Status
 
-Early setup. Current step: **P1-01 — Initialize repository** (in progress).
-No application functionality is implemented and no results have been measured
-yet. Progress is tracked in
+Early setup: the repository and a local PostgreSQL/pgvector database are in
+place. No application functionality is implemented and no results have been
+measured yet. The current step and its evidence are tracked in
 [docs/PROJECT_1_BUILD_CHECKLIST.md](docs/PROJECT_1_BUILD_CHECKLIST.md).
 
 ## Planned stack
@@ -54,9 +54,21 @@ Prerequisites: Python 3.12, [uv](https://docs.astral.sh/uv/) and Docker.
    Copy-Item .env.example .env
    ```
 
-   `.env` is excluded from Git and must never be committed.
-2. Dependencies are declared in `pyproject.toml` and pinned in `uv.lock`, which
-   is created when the first dependency is added.
+   `.env` is excluded from Git and must never be committed. Set a strong
+   `POSTGRES_PASSWORD` before the first start: the database stores it on first
+   initialization, and later changes to `.env` do not update it.
+2. Start the local database (PostgreSQL 17 with pgvector, port bound to
+   `127.0.0.1` only) and wait until its status shows `(healthy)`:
+
+   ```powershell
+   docker compose up -d
+   docker compose ps
+   ```
+
+   Data is kept in the named volume `hr-policy-rag_pgdata`.
+   `docker compose down` keeps it; `docker compose down -v` deletes it.
+   Do not share `docker compose config` output, because it prints credentials.
+3. Dependencies are declared in `pyproject.toml` and pinned in `uv.lock`.
 
 ## Engineering practices
 
