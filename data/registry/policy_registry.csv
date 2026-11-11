@@ -1,0 +1,28 @@
+tenant_id,policy_id,version,effective_from,effective_to,approval_status,access_scope,owner,source_uri
+grayer,employee_handbook,1,2025-01-01,,approved,all_employees,People Operations,data/raw/grayer/employee_handbook/v1.pdf
+grayer,benefits,1,2025-01-01,,approved,all_employees,Benefits Administration,data/raw/grayer/benefits/v1.md
+grayer,pto_leave,1,2025-01-01,,approved,all_employees,People Operations,data/raw/grayer/pto_leave/v1.md
+grayer,remote_work,1,2023-01-01,2025-07-01,approved,all_employees,People Operations,data/raw/grayer/remote_work/v1.md
+grayer,remote_work,2,2025-07-01,,approved,all_employees,People Operations,data/raw/grayer/remote_work/v2.md
+grayer,onboarding,1,2025-01-01,,approved,all_employees,Talent Acquisition,data/raw/grayer/onboarding/v1.md
+grayer,expenses,1,2025-01-01,,approved,all_employees,Finance,data/raw/grayer/expenses/v1.md
+grayer,manager_guide,1,2025-01-01,,approved,managers,People Operations,data/raw/grayer/manager_guide/v1.md
+grayer,hr_relocation_guidelines,1,2025-07-01,,approved,hr_only,HR Compliance,data/raw/grayer/hr_relocation_guidelines/v1.md
+applewhite,employee_handbook,1,2024-01-01,,approved,all_employees,People Operations,data/raw/applewhite/employee_handbook/v1.pdf
+applewhite,benefits,1,2025-01-01,,approved,all_employees,Benefits Administration,data/raw/applewhite/benefits/v1.md
+applewhite,pto_leave,1,2024-01-01,2026-01-01,approved,all_employees,People Operations,data/raw/applewhite/pto_leave/v1.md
+applewhite,pto_leave,2,2026-01-01,,approved,all_employees,People Operations,data/raw/applewhite/pto_leave/v2.md
+applewhite,pandemic_leave,1,2020-04-01,2023-06-01,withdrawn,all_employees,People Operations,data/raw/applewhite/pandemic_leave/v1.md
+applewhite,remote_work,1,2025-01-01,,approved,all_employees,People Operations,data/raw/applewhite/remote_work/v1.md
+applewhite,onboarding,1,2025-01-01,,approved,all_employees,Talent Acquisition,data/raw/applewhite/onboarding/v1.md
+applewhite,expenses,1,2025-01-01,,approved,all_employees,Finance,data/raw/applewhite/expenses/v1.md
+applewhite,manager_guide,1,2025-01-01,,approved,managers,People Operations,data/raw/applewhite/manager_guide/v1.md
+applewhite,hr_relocation_guidelines,1,2025-01-01,,approved,hr_only,HR Compliance,data/raw/applewhite/hr_relocation_guidelines/v1.md
+thomas,employee_handbook,1,2025-01-01,,approved,all_employees,People Operations,data/raw/thomas/employee_handbook/v1.pdf
+thomas,benefits,1,2025-01-01,,approved,all_employees,Benefits Administration,data/raw/thomas/benefits/v1.md
+thomas,pto_leave,1,2025-01-01,,approved,all_employees,People Operations,data/raw/thomas/pto_leave/v1.md
+thomas,remote_work,1,2025-01-01,,approved,all_employees,People Operations,data/raw/thomas/remote_work/v1.md
+thomas,onboarding,1,2025-01-01,,approved,all_employees,Talent Acquisition,data/raw/thomas/onboarding/v1.md
+thomas,expenses,1,2025-01-01,,approved,all_employees,Finance,data/raw/thomas/expenses/v1.md
+thomas,manager_guide,1,2025-01-01,,approved,managers,People Operations,data/raw/thomas/manager_guide/v1.md
+thomas,hr_relocation_guidelines,1,2025-01-01,,approved,hr_only,HR Compliance,data/raw/thomas/hr_relocation_guidelines/v1.md

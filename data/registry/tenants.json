@@ -1,0 +1,33 @@
+{
+  "synthetic": true,
+  "notice": "Fictional companies created for this portfolio project. Any resemblance to real organizations is coincidental.",
+  "roles": ["employee", "manager", "hr"],
+  "access_scopes": {
+    "all_employees": ["employee", "manager", "hr"],
+    "managers": ["manager", "hr"],
+    "hr_only": ["hr"]
+  },
+  "tenants": [
+    {
+      "tenant_id": "grayer",
+      "name": "Grayer Logistics",
+      "industry": "Freight and warehousing",
+      "hq_state": "OH",
+      "operating_states": ["OH", "IN", "KY", "PA"]
+    },
+    {
+      "tenant_id": "applewhite",
+      "name": "Applewhite Health",
+      "industry": "Outpatient clinics",
+      "hq_state": "GA",
+      "operating_states": ["GA", "SC", "NC"]
+    },
+    {
+      "tenant_id": "thomas",
+      "name": "Thomas Software",
+      "industry": "Software (remote-first)",
+      "hq_state": "CO",
+      "operating_states": ["CO", "TX", "WA", "NY", "IL", "AZ"]
+    }
+  ]
+}

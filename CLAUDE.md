@@ -1024,6 +1024,48 @@ Do not generate an entire application in one response.
 
 When asked to implement a single step, focus on that step.
 
+### Documentation Standard (Mandatory)
+
+For every application, configuration, infrastructure
+or test file Claude creates or significantly modifies:
+
+1. Code comments: include clear, concise comments or
+   docstrings explaining the file's purpose, important
+   functions, non-obvious logic and significant
+   technical decisions. Avoid comments that merely
+   repeat the code.
+2. Private learning documentation: add or update a
+   brief summary in the appropriate file under
+   `docs/learning/`, explaining:
+   - What the file does
+   - Why it is needed
+   - How it fits into the overall application
+   - Important concepts or decisions to understand
+   - How to run, test or verify it, when applicable
+3. Command reference: keep documenting meaningful
+   commands and their explanations in the private
+   command reference (`docs/learning/`).
+4. Maintain automatically: update the learning
+   documents as part of the normal implementation
+   workflow, without waiting for the developer to
+   request documentation for each file.
+
+Keep summaries concise, practical and easy to review
+later. Avoid duplicating information already
+documented.
+
+Preserve the distinction between formal engineering
+evidence (`docs/reviews/`) and personal learning
+material (`docs/learning/`). All learning
+documentation stays Git-ignored and private.
+
+This standard does not authorize modifying files or
+proceeding with implementation without the developer's
+approval. It does not change the hand-written core
+requirements (Section 15): for those files Claude may
+review and explain the developer's implementation, but
+must not generate their code or tests.
+
 ## 18. Documentation and Decision Records
 
 Maintain project documentation covering:
@@ -1141,11 +1183,11 @@ Project 1 is complete when it demonstrates:
 Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
-Current step: P1-03 — Data model and provenance
-(Not started; awaiting developer authorization)
+Current step: P1-04 — Source collection and starter
+corpus (Not started; awaiting developer authorization)
 
-Previous step: P1-02 — Local development infrastructure
-(Verified 2026-11-03)
+Previous step: P1-03 — Data model and provenance
+(Verified 2026-11-11)
 
 Done: Claude Code extension, project folder, CLAUDE.md
 aligned to the 2026 Final PDF, `HANDWRITTEN.md` ledger
@@ -1165,8 +1207,15 @@ role design are in
 `docs/reviews/2026-11-03_P1-02_security-design-review.md`
 (SDR-001 stays open until P1-09/P1-15).
 
+P1-03 defined three fictional tenants (Grayer
+Logistics, Applewhite Health, Thomas Software), role
+scopes, a 27-row policy version registry and source
+manifest under `data/registry/`, documented in
+`docs/data/DATA_SPEC.md` and validated by
+`ingest/registry.py` (`tests/test_registry.py`).
+
 P1-01 and P1-02 were verified by the developer on
-2026-11-03.
+2026-11-03; P1-03 on 2026-11-11.
 
 Do not begin implementing the RAG pipeline until
 the developer explicitly authorizes the next step.
