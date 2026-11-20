@@ -1266,12 +1266,11 @@ Project 1 is complete when it demonstrates:
 Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
-Current step: P1-04 — Source collection and starter
-corpus (In progress: all 27 documents approved
-2026-11-20; data card and validation report remain)
+Current step: P1-05 — Versioned larger dataset
+(Not started; awaiting developer authorization)
 
-Previous step: P1-03 — Data model and provenance
-(Verified 2026-11-11)
+Previous step: P1-04 — Source collection and starter
+corpus (Verified 2026-11-20)
 
 Done: Claude Code extension, project folder, CLAUDE.md
 aligned to the 2026 Final PDF, `HANDWRITTEN.md` ledger
@@ -1298,8 +1297,15 @@ manifest under `data/registry/`, documented in
 `docs/data/DATA_SPEC.md` and validated by
 `ingest/registry.py` (`tests/test_registry.py`).
 
+P1-04 authored 27 synthetic documents (three handbook
+PDFs rendered by `ingest/render_pdf.py`), a data card
+draft (`docs/data/DATA_CARD.md`) and a corpus
+validation report (`tests/test_corpus_documents.py`).
+It found that PDF text extraction returns ligatures;
+the P1-07 PDF loader must apply NFKC normalization.
+
 P1-01 and P1-02 were verified by the developer on
-2026-11-03; P1-03 on 2026-11-11.
+2026-11-03; P1-03 on 2026-11-11; P1-04 on 2026-11-20.
 
 Amendment A (performance engineering) was approved and
 recorded on 2026-11-19. It adds sub-steps P1-17a/b/c
