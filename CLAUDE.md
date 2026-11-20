@@ -1267,9 +1267,8 @@ Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
 Current step: P1-04 — Source collection and starter
-corpus (In progress: Increment 1, Grayer Logistics,
-approved 2026-11-20; Increment 2 awaiting
-authorization)
+corpus (In progress: all 27 documents approved
+2026-11-20; data card and validation report remain)
 
 Previous step: P1-03 — Data model and provenance
 (Verified 2026-11-11)
