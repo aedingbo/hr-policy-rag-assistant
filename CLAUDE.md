@@ -53,6 +53,24 @@ It supersedes
 all earlier portfolio versions. Where they conflict,
 the 2026 Final PDF wins.
 
+Amendment A (approved 2026-11-19) extends the PDF:
+`docs/reference/Amendment_A_Performance_Engineering.md`
+(private, git-ignored like the PDF). It adds
+performance engineering, evaluation frameworks,
+measurement standards, competency tracking and
+application-readiness criteria. Read the PDF and
+Amendment A together. Amendment A governs only what it
+explicitly adds or changes; everything else in the PDF
+stands. The PDF itself is never modified. Its private
+companions are `docs/reference/Competency_Evidence_Tracker.md`
+and `docs/reference/Resume_Evidence_Ledger.md`.
+
+Approving Amendment A did not authorize
+implementation, dependency installation, development-
+environment changes (for example WSL2), infrastructure,
+quota requests or spending; each needs its usual
+separate approval when its milestone begins.
+
 Project 1 is first in the portfolio build order.
 Project numbers are fixed; build positions do not
 renumber projects.
@@ -86,8 +104,9 @@ Distinguish between:
 
 The developer must approve significant changes.
 
-If the portfolio PDF is not available in the repository,
-request access to it rather than inventing requirements.
+If the portfolio PDF or Amendment A is not available in
+the repository, request access to it rather than
+inventing requirements.
 
 ## 3. Employer and Data Boundaries (Mandatory)
 
@@ -150,7 +169,22 @@ Frontend:
 
 Quality and performance:
 - pytest, Ruff, Pyright, Bandit
-- locust or k6 for load testing
+- Locust for load testing (selected over k6;
+  Amendment A, decision D5)
+- Ragas for RAG evaluation, calibrated against human
+  labels; it supplements, never replaces, deterministic
+  and hand-written evaluation (Amendment A)
+- Python profiling: py-spy, cProfile, Memray (P1-17a)
+- Dependency and container image scanning in CI
+  (tools chosen at P1-17)
+- Native benchmarking component (P1-17c): C++20, CMake,
+  pybind11, GoogleTest, Google Benchmark,
+  AddressSanitizer and UndefinedBehaviorSanitizer. The
+  learning and benchmarking component is required;
+  production integration is Conditional (below)
+- Linux tooling (Memray, perf, sanitizers) runs in WSL2
+  Ubuntu or CI Linux runners. WSL2 is installed only
+  when its milestone begins and the developer approves
 
 Observability:
 - OpenTelemetry (X-Ray-compatible tracing)
@@ -187,7 +221,19 @@ Development:
   baseline; keep only if measured precision/recall
   benefit justifies its cost.
 - Caching and model routing: only where measurement
-  shows they are useful.
+  shows they are useful. A shared cache (Redis or
+  equivalent) only if a measured need exists and more
+  than one service instance runs; cache keys include
+  tenant, role scope, index version, model and prompt
+  version; cross-tenant cache-leak and stale-policy
+  tests are then required (Amendment A §6.4).
+- DeepEval: only where it adds evaluation capability
+  complementary to Ragas (required in Projects 2 and 4).
+- Production integration of the P1-17c C++ component:
+  only if profiling shows a meaningful bottleneck and
+  the benchmark shows a quality-preserving benefit;
+  otherwise the experiment and ADR are kept and the
+  production architecture is unchanged.
 - Amazon OpenSearch: documented ADR alternative and
   scale benchmark; not built unless a measured need
   appears.
@@ -198,6 +244,9 @@ Development:
   dependency.
 - Query rewriting/HyDE and contextual retrieval
   ablations (stretch goal).
+- Valgrind (overlaps AddressSanitizer), pytest-benchmark,
+  eBPF and other advanced optimization tools listed as
+  Optional in Amendment A §16.
 
 Hugging Face and Pinecone are not project dependencies.
 
@@ -772,14 +821,26 @@ Use deterministic test fixtures.
 
 ### Load Testing (Mandatory)
 
-Use locust or k6 at 1, 10 and 50 concurrent users.
-Report p50/p95 latency, error rate, throughput, cost
-per 1,000 queries and cache hit rate. Run locally
-before deployment and against the deployed service.
+Use Locust at 1, 10 and 50 concurrent users against
+the live model. Report p50/p95 latency, error rate,
+throughput, cost per 1,000 queries and cache hit rate.
+Run locally before deployment and against the deployed
+service.
 
-Choose other profiling tools when performance work
-begins. Do not claim performance results without
-measurement.
+Amendment A additions: a simulated-provider mode
+(fake model with configurable latency) for ramp-to-
+saturation tests that isolate internal bottlenecks,
+kept separate from live-model results; p90/p99/max
+where the sample size supports them; successful vs
+attempted throughput; failures and timeouts reported,
+never silently excluded.
+
+Profiling tools: py-spy, cProfile and Memray for
+Python (P1-17a); Linux perf, AddressSanitizer and
+UndefinedBehaviorSanitizer for the native component
+(P1-17c). Every material performance investigation
+follows the 15-step method in Amendment A §12. Do not
+claim performance results without measurement.
 
 Automated tools complement independent AI review;
 they do not guarantee correctness or security.
@@ -813,6 +874,15 @@ Measure:
 - Cache hit rate
 - RAG vs long-context quality, latency and cost
 - Time-to-answer versus a defined manual baseline
+- Amendment A: Ragas context precision/recall,
+  faithfulness and answer relevance (after
+  calibration); TTFT, TPOT and per-component latency;
+  p90/p99 where supported; cost per acceptable answer;
+  recovery time after failures
+
+Performance targets in Amendment A (§6.8, §7.10) are
+provisional hypotheses. They become gate thresholds
+only after a measured baseline.
 
 Release gate:
 - Set thresholds after the baseline is measured.
@@ -912,6 +982,15 @@ under alternative folder names (for example
 | `tests/test_isolation.py` | P1-09 (SQL layer), P1-15 (API layer) |
 
 Target: about 700-900 lines including tests.
+
+Amendment A adds one hand-written component: the P1-17c
+native C++20 learning and benchmarking component (its
+C++ implementation, native tests and pybind11
+bindings). Its exact paths are fixed with the developer
+when P1-17c begins, then added to the table above and
+to `HANDWRITTEN.md`. The rules in this section apply to
+it in full; Claude may scaffold build and CI wiring
+outside the hand-written files.
 
 Claude may:
 - Explain concepts, without solution code
@@ -1108,6 +1187,10 @@ Required Project 1 ADRs:
 - Thin LangChain use and retrieval fusion
 - LangGraph vs simpler Python control flow
 - LangSmith vs Langfuse
+- Amendment A: Locust as the load-testing tool (k6
+  not adopted); Ragas/DeepEval scope and calibration;
+  caching (none, in-process or shared); P1-17c C++
+  production-integration go/no-go
 
 Do not repeatedly display the decision log unless requested.
 
@@ -1184,7 +1267,9 @@ Project: RAG Knowledge Intelligence Platform
 (HR Policy & Benefits Knowledge Assistant)
 
 Current step: P1-04 — Source collection and starter
-corpus (Not started; awaiting developer authorization)
+corpus (In progress: Increment 1, Grayer Logistics,
+approved 2026-11-20; Increment 2 awaiting
+authorization)
 
 Previous step: P1-03 — Data model and provenance
 (Verified 2026-11-11)
@@ -1216,6 +1301,12 @@ manifest under `data/registry/`, documented in
 
 P1-01 and P1-02 were verified by the developer on
 2026-11-03; P1-03 on 2026-11-11.
+
+Amendment A (performance engineering) was approved and
+recorded on 2026-11-19. It adds sub-steps P1-17a/b/c
+and measurement additions to existing rows; it does not
+renumber, restart or change the status of P1-01 to
+P1-19.
 
 Do not begin implementing the RAG pipeline until
 the developer explicitly authorizes the next step.

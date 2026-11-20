@@ -3,7 +3,8 @@
 Project 1: HR Policy & Benefits Knowledge Assistant
 
 This ledger lists the files the developer writes without AI-generated
-solutions, as required by `docs/reference/2026 Final AI Bridge Portfolio.pdf`
+solutions, as required by `docs/reference/2026 Final AI Bridge Portfolio.pdf`,
+its private Amendment A (`docs/reference/Amendment_A_Performance_Engineering.md`)
 and `CLAUDE.md` Section 15.
 
 ## Rules
@@ -57,8 +58,9 @@ no references (interview drills).
 | `eval/judge_agreement.py` | P1-14 | Not started |
 | `api/limits.py` | P1-15 | Not started |
 | `tests/test_isolation.py` | P1-09, P1-15 | Not started |
+| Native C++20 component (Amendment A; paths fixed at step start) | P1-17c | Not started |
 
-Target: about 700-900 lines including tests.
+Target: about 700-900 lines including tests, plus the P1-17c native component.
 
 ## File entries
 
@@ -162,6 +164,19 @@ Blank-file redo: <date> - <result>
 - Requirement: cross-tenant/cross-role tests at SQL and API layers.
 - Validated against: zero leaked rows/chunks
 
+### Native C++20 component (P1-17c, Amendment A)
+
+- Status: Not started
+- Requirement: bounded C++20 implementation of a document-preprocessing
+  computation chosen from P1-17a profiles; RAII and memory-safe ownership;
+  pybind11 bindings; native tests (GoogleTest); output identical to the
+  Python baseline; benchmarks (Google Benchmark plus end-to-end), including
+  interop overhead and GIL release. The developer writes the C++
+  implementation, native tests and bindings; Claude may scaffold build/CI
+  wiring outside these files. Production integration is Conditional.
+- Paths: fixed with the developer when P1-17c begins.
+- Validated against: the Python baseline (property tests); ASan/UBSan
+
 ## Timed re-implementation drills (Project 1)
 
 Complete from a blank file, plain Python, before interviewing on Project 1,
@@ -174,3 +189,5 @@ then diff against the repository version.
 | Async LLM client: semaphore concurrency, timeout, retry with backoff + jitter | 20 min | | | |
 | Token-bucket rate limiter | 15 min | | | |
 | LRU cache with TTL | 15 min | | | |
+| Latency percentiles (p50/p90/p95/p99) and bootstrap CI from raw samples (Amendment A) | 15 min | | | |
+| P1-17c native C++ core function from a blank file (Amendment A) | Set at P1-17c | | | |

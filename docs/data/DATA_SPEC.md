@@ -73,10 +73,20 @@ another tenant's rule is detectable.
 
 1. Every document is original, fictional content and is labeled synthetic.
 2. No employer or client material, including anonymized versions.
-3. Each document states its tenant, policy ID, version and effective dates,
-   and these must match the registry.
+3. Each document states its tenant, policy ID, version and effective date
+   (`effective_from`) in a header table, and these must match the registry.
+   A document does not state its own end date (it was not known when the
+   document was written); `effective_to` comes from the registry. A newer
+   version may name the version it replaces.
 4. Rules in a document must match the difference table above; any change is
    made here first.
 5. Conflicts exist only where they are listed above.
 6. Any people named are fictional; no real personal data.
 7. Documents are reviewed by the developer before they are used.
+8. Overview documents (handbook, manager guide) point to the topic policy
+   instead of restating version-specific rules, so a policy change cannot
+   create an unplanned conflict.
+9. Markdown documents are stored at their registry `source_uri`. A PDF
+   document's Markdown authoring source is kept at
+   `data/source/{tenant}/{policy_id}/v{n}.md` and converted to the registry
+   path; only the PDF is the corpus document.

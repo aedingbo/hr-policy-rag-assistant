@@ -1,2 +1,2 @@
 source_scope,origin,license,reference_material,notes
-data/raw/**,original_synthetic,Original work for this repository (repository license applies),none,Fictional policies authored in P1-04; no employer or client material; authoring method and checksums recorded in P1-04/P1-05
+data/raw/**,original_synthetic,Original work for this repository (repository license applies),none,Fictional policies authored in P1-04 (drafted with Claude Code; reviewed and approved by the developer); no employer or client material; registered PDFs rendered from data/source Markdown by ingest/render_pdf.py (markdown-pdf/PyMuPDF; dev tool only); checksums recorded in P1-05

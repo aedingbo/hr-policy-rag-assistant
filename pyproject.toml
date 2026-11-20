@@ -31,6 +31,7 @@ pythonpath = ["."]
 [dependency-groups]
 dev = [
     "bandit>=1.9.4",
+    "markdown-pdf>=1.14",
     "pyright>=1.1.414",
     "pytest>=9.2.0",
     "ruff>=0.17.4",
